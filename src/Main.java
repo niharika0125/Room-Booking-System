@@ -1,19 +1,27 @@
+import java.util.*;
+
 class Room {
     int roomNumber;
-    String type;
+    boolean isAvailable;
 
-    Room(int roomNumber, String type) {
+    Room(int roomNumber) {
         this.roomNumber = roomNumber;
-        this.type = type;
+        this.isAvailable = true;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Room r1 = new Room(101, "Single");
-        Room r2 = new Room(102, "Double");
+        List<Room> rooms = new ArrayList<>();
 
-        System.out.println("Room " + r1.roomNumber + " Type: " + r1.type);
-        System.out.println("Room " + r2.roomNumber + " Type: " + r2.type);
+        rooms.add(new Room(101));
+        rooms.add(new Room(102));
+
+        System.out.println("Available Rooms:");
+        for (Room r : rooms) {
+            if (r.isAvailable) {
+                System.out.println("Room " + r.roomNumber);
+            }
+        }
     }
 }
